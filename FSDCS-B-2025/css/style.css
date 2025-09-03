@@ -2,7 +2,7 @@
     background-color: aqua;
 } */
 
- p{
+ /* p{
     background-color: brown;
 
 } 
@@ -16,3 +16,40 @@
 .footer{
     background-color:rgb(8, 211, 247);
 }
+ */
+
+ div~p{
+    background-color: brown;
+    color: white;
+ }
+
+ /* p:hover{
+    font-size: x-large;
+    background-color: aqua;
+    color:black;
+ } */
+
+ p::after{
+    content: "ABES Engineering college";
+    background-color: aquamarine;
+    color: black;
+ }
+ p::before{
+    content: "ABES Engineering college";
+    background-color: aquamarine;
+    color: black;
+ }
+
+ p::selection{
+    background-color: chartreuse;
+    color: black;
+ }
+ 
+ p:nth-child(2){
+    background-color: black;
+ }
+
+ div p:nth-of-type(1){
+    background-color: aqua;
+    font-size: xx-small;
+ }
