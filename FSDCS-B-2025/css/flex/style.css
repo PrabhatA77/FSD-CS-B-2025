@@ -1,0 +1,37 @@
+.parent{
+    display:flex;
+    background-color:chartreuse;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.child1{
+    border: 2px dotted black;
+    height: 200px;
+    width: 200px;
+    background-color: brown;
+}
+.child2{
+    border: 2px dotted black;
+    height: 200px;
+    width: 200px;
+    background-color: brown;
+
+}
+.child3{
+    border: 2px dotted black;
+    height: 200px;
+    width: 200px;
+    background-color: brown;
+
+}
+.child4{
+    border: 2px dotted black;
+    height: 200px;
+    width: 200px;
+    background-color: brown;
+
+}

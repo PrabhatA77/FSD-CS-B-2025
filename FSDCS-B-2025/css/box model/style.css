@@ -1,0 +1,16 @@
+body{
+    background-color: aquamarine;
+}
+
+.box{
+    height: 300px ;
+    width: 450px;
+    border: 1px solid red;
+    background-color: whitesmoke;
+}
+.box1{
+    height:100px;
+    width:100px;
+    background-color: chartreuse;
+    border:2px solid black;
+}
