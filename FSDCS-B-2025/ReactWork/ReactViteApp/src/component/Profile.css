@@ -1,0 +1,17 @@
+.profileBox{
+    border:2px solid rgb(0, 145, 255);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50vw;
+    background-color: aqua;
+}
+img{
+    border: 2px solid rgb(0, 145, 255);
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+}
+.details{
+    color: brown;
+}
