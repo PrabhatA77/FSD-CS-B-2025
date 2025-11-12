@@ -1,16 +1,28 @@
 import './App.css';
-import Gallery from './component/Gallery.jsx';
-import StateHandling from './component/StateHandling.jsx';
+import {BrowserRouter,Route,Routes} from "react-router-dom";
+import Registration from './pages/Registration.jsx';
+import Dashboard from './pages/Dashboard.jsx';
+import Login from './pages/Login.jsx';
+import MainLayout from './pages/MainLayout.jsx';
 
 function App() {
 
   return (
-    <div className='container'>
-      <h2>Welcome to react vite</h2>
-      {/* <Gallery/> */}
+    // <div className='container'>
+    //   <h2>Welcome to react vite</h2>
+    //   {/* <Gallery/> */}
 
-      <StateHandling/>
-    </div>
+    //   <StateHandling/>
+    // </div>
+
+    <BrowserRouter>
+      <Routes>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/register' element={<Registration/>}/>
+        <Route path='/dashboard' element={<Dashboard/>}/>
+        <Route path='/' element={<MainLayout/>}/>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
