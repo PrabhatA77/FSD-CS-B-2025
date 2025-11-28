@@ -76,7 +76,12 @@ const Dashboard = () => {
                 <p><strong>Price : </strong> ${item.price}</p>
                 <img src={item.image} alt={item.title} style={{ width: '100px', height: '100px', objectFit: 'cover', borderRadius: '5px' }} />
                 <br /> <br />
-                <button onClick={() => addToCart(item)}>Add to Cart</button>
+                <button
+                  onClick={() => addToCart(item)}
+                  style={{ cursor: 'pointer' }}
+                >
+                  Add to Cart
+                </button>
               </div>
             ))
           }

@@ -8,11 +8,39 @@ export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
 
     const addToCart = (item) => {
-        setCart((prevCart) => [...prevCart, item]);
+        setCart((prevCart) => {
+            const existingItem = prevCart.find((cartItem) => cartItem.id === item.id);
+            if (existingItem) {
+                return prevCart.map((cartItem) =>
+                    cartItem.id === item.id
+                        ? { ...cartItem, quantity: cartItem.quantity + 1 }
+                        : cartItem
+                );
+            }
+            return [...prevCart, { ...item, quantity: 1 }];
+        });
     };
 
-    const removeFromCart = (itemId) => {
-        setCart((prevCart) => prevCart.filter((item, index) => index !== itemId)); // Using index as ID for now since API might not have unique IDs for duplicates
+    const incrementQuantity = (id) => {
+        setCart((prevCart) =>
+            prevCart.map((item) =>
+                item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+            )
+        );
+    };
+
+    const decrementQuantity = (id) => {
+        setCart((prevCart) =>
+            prevCart.map((item) =>
+                item.id === id && item.quantity > 1
+                    ? { ...item, quantity: item.quantity - 1 }
+                    : item
+            )
+        );
+    };
+
+    const removeFromCart = (id) => {
+        setCart((prevCart) => prevCart.filter((item) => item.id !== id));
     };
 
     const clearCart = () => {
@@ -20,7 +48,7 @@ export const CartProvider = ({ children }) => {
     };
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
+        <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart, incrementQuantity, decrementQuantity }}>
             {children}
         </CartContext.Provider>
     );

@@ -3,10 +3,10 @@ import { useCart } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
-    const { cart, removeFromCart, clearCart } = useCart();
+    const { cart, removeFromCart, clearCart, incrementQuantity, decrementQuantity } = useCart();
     const navigate = useNavigate();
 
-    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
     return (
         <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
@@ -38,19 +38,25 @@ const Cart = () => {
                                         <p style={{ margin: 0, color: '#666' }}>${item.price.toFixed(2)}</p>
                                     </div>
                                 </div>
-                                <button
-                                    onClick={() => removeFromCart(index)}
-                                    style={{
-                                        backgroundColor: '#ff4444',
-                                        color: 'white',
-                                        border: 'none',
-                                        padding: '5px 10px',
-                                        borderRadius: '4px',
-                                        cursor: 'pointer'
-                                    }}
-                                >
-                                    Remove
-                                </button>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                                    <button onClick={() => decrementQuantity(item.id)} style={{ padding: '5px 10px' }}>-</button>
+                                    <span>{item.quantity}</span>
+                                    <button onClick={() => incrementQuantity(item.id)} style={{ padding: '5px 10px' }}>+</button>
+                                    <button
+                                        onClick={() => removeFromCart(item.id)}
+                                        style={{
+                                            backgroundColor: '#ff4444',
+                                            color: 'white',
+                                            border: 'none',
+                                            padding: '5px 10px',
+                                            borderRadius: '4px',
+                                            cursor: 'pointer',
+                                            marginLeft: '10px'
+                                        }}
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
                             </div>
                         ))}
                     </div>
